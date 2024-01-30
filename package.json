@@ -1,0 +1,11 @@
+{
+  "name": "mindease",
+  "version": "1.0.0",
+  "description": "building the home page and user authentication for mindease",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akshit",
+  "license": "ISC"
+}
