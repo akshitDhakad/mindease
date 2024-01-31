@@ -1,7 +1,7 @@
-const User = require("../models/userModel");
+const User = require("../models/authModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const SECRET_KEY = process.env.ANNAPURNA_SECRET_KEY;
+const SECRET_KEY = process.env.MINDEASE_KEY || "your_default_secret_key";
 
 exports.registerUser = async (req, res) => {
   try {
@@ -24,7 +24,6 @@ exports.registerUser = async (req, res) => {
     );
     const userdata = {
       id: newUser._id,
-      isAdmin: newUser.isAdmin,
       name: newUser.name,
       email: newUser.email,
     };
@@ -39,17 +38,12 @@ exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    if (!user) {
-      return res
-        .status(401)
-        .json({ success: false, error: "Invalid credentials" });
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      return res.status(401).json({ error: "Invalid credentials" });
     }
-    const token = jwt.sign(
-      {
-        userId: user._id,
-      },
-      SECRET_KEY
-    );
+    const token = jwt.sign({ userId: user._id }, SECRET_KEY, {
+      expiresIn: "1d",
+    });
     const userdata = {
       id: user._id,
       isAdmin: user.isAdmin,
@@ -62,5 +56,4 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
-
 // "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBkYzg3ZWM2YWU0OTRjNjA3MmQ4ZTgiLCJpYXQiOjE2OTU0MDIxMTAsImV4cCI6MTY5NTQ4ODUxMH0.MYoH8r7k4nWUFUZybZbO0WYSaAg-ZpybJ2-qg_Rb-KI"
