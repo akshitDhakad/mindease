@@ -47,7 +47,7 @@
 			<h3>Feel free!</h3>
 		</div>
 		<div class="form my-10">
-            <form action="/auth/register" method="post" class="form-container">
+            <form action="http://localhost:5000/auth/register" method="post" id="registerForm" class="form-container">
                 <h2 class="text-center">Register</h2>
                 <div class="d-flex flex-column my-2">
                     <label for="name">Name</label>
@@ -88,12 +88,39 @@
         var href = linkEl.getAttribute('href');
         if (href.startsWith('/')) {
             linkEl.setAttribute('href', document.location.origin + href);
+            }
         }
-    }
-});
+    });
 
     
     </script>
-    
+
+    <!-- alert meassges  -->
+    <script>
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var formData = new FormData(this);
+        fetch('/auth/register', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = '/login'; // Redirect to login page
+            } else {
+                alert(data.message || data.error); // Show error message
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while submitting the form.');
+        });
+    });
+    </script>
+
+
+        
 </body>
 </html>

@@ -23,6 +23,8 @@ app.use(express.static(path.join(__dirname,'src', "public")));
 // middlewares
 app.use(cors());
 app.use(express.json());
+// For URL-encoded data (e.g., form submissions)
+app.use(express.urlencoded({ extended: true }));
 
 // mongoose // connecting to database
 

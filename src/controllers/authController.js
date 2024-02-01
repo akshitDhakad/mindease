@@ -6,7 +6,6 @@ const SECRET_KEY = process.env.MINDEASE_KEY || "your_default_secret_key";
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
     // Basic validation
     if (!name || !email || !password) {
       return res.status(400).json({ message: "Please enter all fields" });
@@ -59,10 +58,9 @@ exports.loginUser = async (req, res) => {
       name: user.name,
       email: user.email,
     };
-    res.json({ user: userdata, success: true, token: token });
+    res.json({ success: true, message: "Registration successful", user: userdata, token: token});
   } catch (error) {
-    console.error("Error logging in user:", error.message);
-    res.status(500).json({ error: "An error occurred" });
+    console.error("Error registering user:", error.message);
+    res.status(500).json({ error: "An error occurred", success: false });
   }
 };
-// "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBkYzg3ZWM2YWU0OTRjNjA3MmQ4ZTgiLCJpYXQiOjE2OTU0MDIxMTAsImV4cCI6MTY5NTQ4ODUxMH0.MYoH8r7k4nWUFUZybZbO0WYSaAg-ZpybJ2-qg_Rb-KI"
