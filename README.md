@@ -64,6 +64,9 @@ Once the server is running, you can access the application by navigating to http
 # License
 This project is licensed under the ISC License.
 
+
+#### Note : please make sure to install all packages and install mongodb in ur local machine before application running 
+
 Authors
 Akshit Dhakad- Initial work
 for any help contact akshit dhakad 8871713348
