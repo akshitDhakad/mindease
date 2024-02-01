@@ -34,20 +34,26 @@ exports.registerUser = async (req, res) => {
       name: newUser.name,
       email: newUser.email,
     };
-    res.json({ user: userdata, token: token });
+    res.status(201).json({
+      success: true,
+      message: "Registration successful",
+      user: userdata,
+      token: token,
+    });
   } catch (error) {
     console.error("Error registering user:", error.message);
-    res.status(500).json({ error: "An error occurred" });
+    res.status(500).json({ success: false, error: "An error occurred" });
   }
 };
-
 
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ error: "Invalid credentials" });
+      return res
+        .status(401)
+        .json({ success: false, error: "Invalid credentials" });
     }
     const token = jwt.sign({ userId: user._id }, SECRET_KEY, {
       expiresIn: "1d",
@@ -58,9 +64,14 @@ exports.loginUser = async (req, res) => {
       name: user.name,
       email: user.email,
     };
-    res.json({ success: true, message: "Registration successful", user: userdata, token: token});
+    res.json({
+      success: true,
+      message: "Login successful",
+      user: userdata,
+      token: token,
+    });
   } catch (error) {
-    console.error("Error registering user:", error.message);
-    res.status(500).json({ error: "An error occurred", success: false });
+    console.error("Error logging in user:", error.message);
+    res.status(500).json({ success: false, error: "An error occurred" });
   }
 };

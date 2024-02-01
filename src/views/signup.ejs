@@ -47,7 +47,7 @@
 			<h3>Feel free!</h3>
 		</div>
 		<div class="form my-10">
-            <form action="http://localhost:5000/auth/register" method="post" id="registerForm" class="form-container">
+            <form  method="post" id="registerForm" class="form-container">
                 <h2 class="text-center">Register</h2>
                 <div class="d-flex flex-column my-2">
                     <label for="name">Name</label>
@@ -80,37 +80,23 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
 
-    <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-    var linkEls = document.getElementsByTagName('A');
-    for (var linkIndex = 0; linkIndex < linkEls.length; linkIndex++) {
-        var linkEl = linkEls[linkIndex];
-        var href = linkEl.getAttribute('href');
-        if (href.startsWith('/')) {
-            linkEl.setAttribute('href', document.location.origin + href);
-            }
-        }
-    });
-
-    
-    </script>
-
-    <!-- alert meassges  -->
+     <!-- alert meassges  -->
     <script>
     document.getElementById('registerForm').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent the default form submission
 
         var formData = new FormData(this);
-        fetch('/auth/register', {
+        fetch('http://localhost:5000/auth/register', { // Adjust the URL as needed
             method: 'POST',
             body: formData
         })
         .then(response => response.json())
         .then(data => {
+           
             if (data.success) {
-                window.location.href = '/login'; // Redirect to login page
+                window.location.href = 'http://localhost:5000/'; // Redirect to home page
             } else {
-                alert(data.message || data.error); // Show error message
+                alert(data.message || 'Registration failed');
             }
         })
         .catch(error => {
@@ -121,6 +107,22 @@
     </script>
 
 
-        
+
+    <!-- ******************************** js code ********************** -->
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    var linkEls = document.getElementsByTagName('A');
+    for (var linkIndex = 0; linkIndex < linkEls.length; linkIndex++) {
+        var linkEl = linkEls[linkIndex];
+        var href = linkEl.getAttribute('href');
+        if (href.startsWith('/')) {
+            linkEl.setAttribute('href', document.location.origin + href);
+            }
+        }
+    });  
+    </script>
+
+   
+     
 </body>
 </html>
