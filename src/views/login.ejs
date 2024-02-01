@@ -96,19 +96,16 @@
 
         var formData = new FormData(this);
         fetch('http://localhost:5000/auth/login', { // Adjust the URL as needed
-            method: 'post',
+            method: 'POST',
             body: formData
         })
         .then(response => response.json())
         .then(data => {
+           
             if (data.success) {
-                // Redirect or handle login success
-                console.log('Login successful', data);
-                // Example: Redirect to another page
-                window.location.href = 'http://localhost:5000/'; // Change to your dashboard page
+                window.location.href = 'http://localhost:5000/'; // Redirect to home page
             } else {
-                // Handle login failure
-                alert(data.error || 'Login failed');
+                alert(data.message || 'Registration failed');
             }
         })
         .catch(error => {
@@ -117,6 +114,7 @@
         });
     });
     </script>
+
 
     
 </body>

@@ -64,3 +64,6 @@ local.properties
 # Others #
 #########
 node_modules/
+configs/*.env
+
+
