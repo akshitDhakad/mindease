@@ -67,6 +67,7 @@ This project is licensed under the ISC License.
 
 #### Note : please make sure to install all packages and install mongodb in ur local machine before application running 
 
+# Note : for any help and support  contact akshit dhakad 8871713348
+
 Authors
 Akshit Dhakad- Initial work
-for any help contact akshit dhakad 8871713348
