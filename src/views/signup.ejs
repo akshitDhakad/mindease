@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>MindEase Login</title>
+
+
+    <link rel="stylesheet" href="/css/style.css">
+    <base href="https://cdn.jsdelivr.net/gh/linuxguist/bizpage@main/"> 
+    <meta content="" name="description">
+    <meta content="MindEase,OCD, " name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/...." rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+
+
+  <!-- =======================================================
+  * Template Name: MindEase
+  * Updated: Mar 10 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/bizpage-bootstrap-business-template/
+  * Author: AkshitDhakad
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+<body>
+   	<div class="container">
+		<div class="banner">
+			<h1 class="fs-1 mx-0"><a href="/" class="text-decoration-none text fs-1"><span class="text-decoration-underline m-0">Mind</span>Ease</a></h1>
+			<h4 class="text-justify">An online platform dedicated to providing comprehensive OCD treatment.</h4>
+			<h3>Feel free!</h3>
+		</div>
+		<div class="form my-10">
+            <form action="/auth/register" method="post" class="form-container">
+                <h2 class="text-center">Register</h2>
+                <div class="d-flex flex-column my-2">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" name="name" required placeholder="Name">
+                </div>
+                <div class="d-flex flex-column my-2">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required placeholder="Email">
+                </div>
+                <div class="d-flex flex-column my-2">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" required minlength="6" placeholder="Password">
+                </div>
+
+                <button>Register</button>
+                <small>Already have an Account? <a href="/login"> Sign In</a></small>
+            </form>
+
+		</div>
+	</div>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+    var linkEls = document.getElementsByTagName('A');
+    for (var linkIndex = 0; linkIndex < linkEls.length; linkIndex++) {
+        var linkEl = linkEls[linkIndex];
+        var href = linkEl.getAttribute('href');
+        if (href.startsWith('/')) {
+            linkEl.setAttribute('href', document.location.origin + href);
+        }
+    }
+});
+
+    
+    </script>
+    
+</body>
+</html>

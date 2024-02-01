@@ -19,6 +19,7 @@ const authenticateMiddleware = require("./src/middlewares/authMiddleware");
 // Set up the templating engine (assuming EJS)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
+app.use(express.static(path.join(__dirname,'src', "public")));
 // middlewares
 app.use(cors());
 app.use(express.json());
@@ -38,6 +39,10 @@ mongoose
 // Use the routes
 app.use('/', pagesRoutes);
 app.use('/auth', authRoutes);
+
+app.get("*", (req,res)=>{
+  res.render('error', {title: 'Error Page'});
+})
 
 
 // server

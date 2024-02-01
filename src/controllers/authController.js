@@ -6,22 +6,30 @@ const SECRET_KEY = process.env.MINDEASE_KEY || "your_default_secret_key";
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-    const existingUser = await User.findOne({
-      email,
-    });
+
+    // Basic validation
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "Please enter all fields" });
+    }
+    if (password.length < 6) {
+      return res
+        .status(400)
+        .json({ message: "Password must be at least 6 characters" });
+    }
+    // Add more validation as needed, e.g., validate email format
+
+    const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ name, email, password: hashedPassword });
     await newUser.save();
-    const token = jwt.sign(
-      {
-        userId: newUser._id,
-      },
-      SECRET_KEY,
-      { expiresIn: "1d" }
-    );
+
+    const token = jwt.sign({ userId: newUser._id }, SECRET_KEY, {
+      expiresIn: "1d",
+    });
     const userdata = {
       id: newUser._id,
       name: newUser.name,
@@ -33,6 +41,7 @@ exports.registerUser = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
+
 
 exports.loginUser = async (req, res) => {
   try {
