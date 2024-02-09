@@ -5,6 +5,9 @@ const pagesController = require("../controllers/pagesController"); // Adjust the
 // Home page route
 router.get("/", pagesController.homePage);
 
+// bookNow page route
+router.get("/book-now", pagesController.bookNow);
+
 // Login page route
 router.get("/login", pagesController.loginPage);
 
