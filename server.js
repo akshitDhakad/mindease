@@ -7,7 +7,7 @@ dotenv.config({ path: "./configs/config.env" });
 const PORT = process.env.PORT || 5000;
 const app = express();
 const mongoDbKey =
-  process.env.MONGO_DB_KEY || "mongodb://127.0.0.1:27017/mindease";
+  process.env.MONGO_DB_KEY || 'mongodb://localhost:27017/mindeaseDB';
 
 
 const pagesRoutes = require("./src/routes/pagesRoutes");
