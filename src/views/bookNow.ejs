@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-    <title>MindEase</title>
+    <title>MindEase <%= title %> </title>
     <meta
       content="an online platform dedicated to providing
 comprehensive OCD treatment"
@@ -57,17 +57,14 @@ comprehensive OCD treatment"
 
   <body>
     <!-- ======= Header ======= -->
-    <header
-      id="header"
-      class="fixed-top d-flex align-items-center header"
-    >
+    <header id="header" class="fixed-top d-flex align-items-center header">
       <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
           <div
             class="col-xl-11 d-flex align-items-center justify-content-between"
           >
             <h1 class="logo">
-              <a href="index.html"><span class="">Mind</span> Ease</a>
+              <a href="/"><span class="">Mind</span> Ease</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
@@ -116,50 +113,84 @@ comprehensive OCD treatment"
     <!-- End Header -->
 
     <main id="main">
-
-        <!-- ======= Contact Section ======= -->
-      <section id="contact" class="section-bg ">
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="section-bg" style="margin-top: 100px">
         <div class="container" data-aos="fade-up">
           <div class="section-header">
-            <h3>Contact Us</h3>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque
-            </p>
+            <h3>Book an Appointment</h3>
+            <p>Easy, Fast, and Convenient Scheduling</p>
           </div>
 
-          
           <!-- Imformation from  -->
           <div class="form">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+            <form
+              action="/post"
+              method="post"
+              role="form"
+              class="php-email-form"
+            >
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control"
+                    id="name"
+                    placeholder="Your Patient Name"
+                    required
+                  />
+                </div>
+                <div class="form-group col-md-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="contact"
+                    id="contact"
+                    placeholder="Your Contact Number"
+                    required
+                  />
+                </div>
               </div>
-              <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
+                  required
+                />
               </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
+            
+              <div class="form-group">
+                <input
+                  type="date"
+                  class="form-control"
+                  name="date"
+                  id="date"
+                  placeholder="Date of Appointment"
+                  required
+                />
+              </div>
+            
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">
+                  Your Appointment has been Booked. Thank you!
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit">Book Now !</button>
+              </div>
+            </form>
           </div>
           <div class="row contact-info">
             <div class="col-md-4">
               <div class="contact-address">
                 <i class="bi bi-geo-alt"></i>
                 <h3>Address</h3>
-                <address>A108 Adam Street, Agra U.P</address>
+                <address>Arvind Vihar, Bagmuglia Bhopal M.P</address>
               </div>
             </div>
 
@@ -177,7 +208,7 @@ comprehensive OCD treatment"
               <div class="contact-email">
                 <i class="bi bi-envelope"></i>
                 <h3>Email</h3>
-                <p><a href="mailto:info@example.com">info@example.com</a></p>
+                <p><a href="mailto:akshitdhakad7400@gmail.com">info@example.com</a></p>
               </div>
             </div>
           </div>
@@ -200,9 +231,6 @@ comprehensive OCD treatment"
         </div>
       </section> -->
       <!-- End Call To Action Section -->
-
-
-      
     </main>
     <!-- End #main -->
 
@@ -225,7 +253,7 @@ comprehensive OCD treatment"
               <h4>Useful Links</h4>
               <ul>
                 <li>
-                  <i class="bi bi-chevron-right"></i> <a href="#">Home</a>
+                  <i class="bi bi-chevron-right"></i> <a href="/">Home</a>
                 </li>
                 <li>
                   <i class="bi bi-chevron-right"></i> <a href="#">About us</a>
@@ -247,10 +275,9 @@ comprehensive OCD treatment"
             <div class="col-lg-3 col-md-6 footer-contact">
               <h4>Contact Us</h4>
               <p>
-                A108 Adam Street <br />
-                Lucknow, Agra U.P<br />
+                Arvind Vihar,<br> Bagmuglia Bhopal M.P<br />
                 <strong>Phone:</strong>+91 8871713348<br />
-                <strong>Email:</strong> info@example.com<br />
+                <strong>Email:</strong> akshitdhakad7400@gmail.com<br />
               </p>
 
               <div class="social-links">
@@ -325,27 +352,17 @@ comprehensive OCD treatment"
     <script src="assets/js/main.js"></script>
 
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get the current URL, removing any fragment
-        var documentUrl = document.location.href.replace(/#.*$/, "");
-
-        // Iterate through all links
-        var linkEls = document.getElementsByTagName("A");
+        document.addEventListener('DOMContentLoaded', function() {
+        var linkEls = document.getElementsByTagName('A');
         for (var linkIndex = 0; linkIndex < linkEls.length; linkIndex++) {
-          var linkEl = linkEls[linkIndex];
+            var linkEl = linkEls[linkIndex];
+            var href = linkEl.getAttribute('href');
+            if (href.startsWith('/')) {
+                linkEl.setAttribute('href', document.location.origin + href);
+            }
+            }
+        });
 
-          // Ignore links that don't begin with #
-          // if (!linkEl.getAttribute('href').match(/^#/)) {
-          //   continue;
-          // }
-
-          // Convert to an absolute URL
-          linkEl.setAttribute(
-            "href",
-            documentUrl + linkEl.getAttribute("href")
-          );
-        }
-      });
     </script>
   </body>
 </html>
