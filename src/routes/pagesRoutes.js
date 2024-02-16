@@ -8,6 +8,15 @@ router.get("/", pagesController.homePage);
 // bookNow page route
 router.get("/book-now", pagesController.bookNow);
 
+// servicePage route
+router.get("/service", pagesController.servicePage);
+
+// blogPage  route
+router.get("/blog", pagesController.blogPage);
+
+// contactPage  route
+router.get("/contact-us", pagesController.contactPage);
+
 // Login page route
 router.get("/login", pagesController.loginPage);
 
