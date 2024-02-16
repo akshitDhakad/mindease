@@ -11,6 +11,15 @@ router.get("/book-now", pagesController.bookNow);
 // servicePage route
 router.get("/service", pagesController.servicePage);
 
+// teamPage route
+router.get("/team", pagesController.teamPage);
+
+// termConditionPage route
+router.get("/terms-service", pagesController.termsConditionPage);
+
+// privacyPolicy route
+router.get("/privacy-policy", pagesController.privacyPage);
+
 // blogPage  route
 router.get("/blog", pagesController.blogPage);
 
